@@ -1,0 +1,10 @@
+﻿<Window x:Class="WpfTabCloseDemo.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Close Tab Demo" Height="361" Width="601">
+    <Grid>
+        <TabControl Margin="12,54,0,0" Name="tabControl1"></TabControl>
+        <Button Height="23" HorizontalAlignment="Left" Margin="62,24,0,0" Name="button1" VerticalAlignment="Top" Width="118" Click="button1_Click">New Tab (small title)</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,25,80,0" Name="button2" VerticalAlignment="Top" Width="114" Click="button2_Click">New Tab (long title)</Button>
+    </Grid>
+</Window>

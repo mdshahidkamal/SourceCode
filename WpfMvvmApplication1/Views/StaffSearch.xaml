@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="HospitalManagementSystem.Views.StaffSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         >
+    <Grid>
+        <Border BorderBrush="Transparent" BorderThickness="1" Margin="5" >
+            <StackPanel   >
+                <StackPanel HorizontalAlignment="Stretch" Width="Auto"  Margin="1" Background="#FF48958C">
+                    <Label  Width="Auto"   HorizontalAlignment="Left"  FontSize="15" Foreground="#FFF7F3F3"  >
+                        Search
+                    </Label>
+                </StackPanel>
+                <Border BorderBrush="#FF48958C" BorderThickness="1" Margin="1" >
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource labelstyle}">Name</Label>
+                                <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource labelstyle}">Email Address</Label>
+                                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}" Style="{StaticResource textboxstyle}" Width="283"  SpellCheck.IsEnabled="True"></TextBox>
+                                <TextBox Grid.Row="0" Grid.Column="4" Text="{Binding EmailAddress}" Style="{StaticResource textboxstyle}" Width="283"  SpellCheck.IsEnabled="True"></TextBox>
+
+                            </Grid>
+
+
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Width="Auto"  HorizontalAlignment="Center">
+                            <Button Style="{StaticResource loginbuttonstyle}" Command="{Binding cmdSearch}" HorizontalAlignment="Left" Width="67" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  >
+                                    <TextBlock Text="Search"></TextBlock>
+                                    <Image Source="/IMS;component/Images/Search.png" Stretch="UniformToFill" Width="20" ></Image>
+                                </StackPanel>
+                            </Button>
+                            <Button Style="{StaticResource loginbuttonstyle}" Click="btnAddNew" HorizontalContentAlignment="Center" Width="Auto" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  >
+                                    <TextBlock Text="Add New Staff"></TextBlock>
+                                    <Image Source="/IMS;component/Images/AddRed.png" Stretch="UniformToFill" Margin="2"></Image>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <DataGrid   ItemsSource="{Binding StaffDetailCollection}" Background="White"
+                            RowHeaderWidth="0"
+                            CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged_1" Cursor="Hand" 
+                            AutoGenerateColumns="False" 
+                            Margin="2" VerticalScrollBarVisibility="Visible" Height="300" VerticalContentAlignment="Center" 
+                            
+                          >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#FF48958C"/>
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="FontFamily" Value="Tangerine" />
+                            <Setter Property="FontSize" Value="15" />
+                            <Setter Property="FontWeight" Value="Medium"/>
+
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGrid.CellStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="StaffID">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock><Hyperlink Command="{Binding cmdSearchWithID}"
+                    						CommandParameter="{Binding StaffID}"><InlineUIContainer>
+                    							<TextBlock Text="{Binding StaffID}" />
+                    						</InlineUIContainer></Hyperlink></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn  Header="Name" Binding="{Binding Name}" Width="200" IsReadOnly="True"  />
+                        <DataGridTextColumn Header="EmailAddress" Binding="{Binding EmailAddress}" Width="250" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="Designation" Binding="{Binding Designation}" Width="100" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="ContactNumber" Binding="{Binding ContactNumber}" Width="150" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="100" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="Address" Binding="{Binding Address}" Width="100" IsReadOnly="True"    />
+
+                        <DataGridTemplateColumn Header="Image">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding ImageSource}" Width="80" Height="100" Name="imgPhoto"  >
+                                    </Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+
+</UserControl>

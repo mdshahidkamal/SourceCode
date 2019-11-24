@@ -1,0 +1,8 @@
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\bin\Release\TestConnectionString.exe
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\bin\Release\TestConnectionString.pdb
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Release\TestConnectionString.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Release\TestConnectionString.Form1.resources
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Release\TestConnectionString.Properties.Resources.resources
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Release\TestConnectionString.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Release\TestConnectionString.exe
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Release\TestConnectionString.pdb

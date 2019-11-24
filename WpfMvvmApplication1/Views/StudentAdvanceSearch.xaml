@@ -1,0 +1,123 @@
+﻿<Window x:Class="HospitalManagementSystem.Views.StudentAdvanceSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HospitalManagementSystem.Views"
+        >
+
+    <Grid>
+        <Border BorderBrush="Transparent" BorderThickness="1" Margin="5" >
+            <StackPanel   >
+                <StackPanel HorizontalAlignment="Stretch" Width="Auto"  Margin="1" Background="#FF48958C">
+                    <Label  Width="Auto"   HorizontalAlignment="Left"  FontSize="15" Foreground="#FFF7F3F3"  >
+                        Advance Search
+                    </Label>
+                </StackPanel>
+                <Border BorderBrush="#FF48958C" BorderThickness="1" Margin="1" >
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Visibility="Visible">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                                    <ColumnDefinition Width="25*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource labelstyle}">First Name</Label>
+                                <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource labelstyle}">Middle Name</Label>
+                                <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource labelstyle}">Last Name</Label>
+                                <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource labelstyle}">Enrollment Number</Label>
+                                <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource labelstyle}">Father's Name</Label>
+                                <Label Grid.Row="2" Grid.Column="2" Style="{StaticResource labelstyle}">Mother's Name</Label>
+                                <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource labelstyle}">Date of Birth</Label>
+                                <Label Grid.Row="3" Grid.Column="2" Style="{StaticResource labelstyle}">Date of Leaving</Label>
+                                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" Style="{StaticResource textboxstyle}" Width="283"  SpellCheck.IsEnabled="True"></TextBox>
+                                <TextBox Grid.Row="0" Grid.Column="4" Text="{Binding MiddleName}" Style="{StaticResource textboxstyle}" Width="283"  SpellCheck.IsEnabled="True"></TextBox>
+                                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding LastName}" Style="{StaticResource textboxstyle}" Width="283"  SpellCheck.IsEnabled="True"></TextBox>
+                                <TextBox Grid.Row="1" Grid.Column="4" Text="{Binding EnrollmentNo}" Style="{StaticResource textboxstyle}" Width="283"  SpellCheck.IsEnabled="True"></TextBox>
+                                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding FatherName}" Style="{StaticResource textboxstyle}" Width="283"  SpellCheck.IsEnabled="True"></TextBox>
+                                <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding MotherName}" Style="{StaticResource textboxstyle}" Width="283"  SpellCheck.IsEnabled="True"></TextBox>
+                                <DatePicker SelectedDate="{Binding DateOfBirth1}" Grid.Row="3" Grid.Column="1" Width="100" HorizontalAlignment="Left" Height="25"/>
+                                <DatePicker SelectedDate="{Binding LeavingDate1}" Grid.Row="3" Grid.Column="3" Width="100" HorizontalAlignment="Left" Height="25"/>
+                            </Grid>
+
+
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal" Width="Auto"  HorizontalAlignment="Center">
+                            <Button Style="{StaticResource savebuttonstyle}" Command="{Binding cmdSearch}" HorizontalAlignment="Left" Width="60" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"   >
+                                    <TextBlock Text="Search" HorizontalAlignment="Center"></TextBlock>
+                                    <Image Source="/IMS;component/Images/Search.png" Stretch="Uniform" Width="20" ></Image>
+                                </StackPanel>
+                            </Button>
+                            
+                            <!--<Button Style="{StaticResource loginbuttonstyle}"  Click="btnSearch" Visibility="Hidden"
+                                    HorizontalAlignment="Left" Width="Auto" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  >
+                                    <TextBlock Text="Add New Student"></TextBlock>
+                                    <Image Source="/IMS;component/Images/AddRed.png" Stretch="UniformToFill" Margin="2"></Image>
+                                </StackPanel>
+                            </Button>-->
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <DataGrid   ItemsSource="{Binding StudentDetailCollection}" Background="White" GridLinesVisibility="None" 
+                            
+                            RowHeaderWidth="0"
+                            CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged_1" Cursor="Hand" 
+                            AutoGenerateColumns="False" 
+                            Margin="2" VerticalScrollBarVisibility="Visible" Height="Auto" VerticalContentAlignment="Center" 
+                            
+                          >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#FF48958C"/>
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="FontFamily" Value="Tangerine" />
+                            <Setter Property="FontSize" Value="15" />
+                            <Setter Property="FontWeight" Value="Medium"/>
+
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGrid.CellStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Enrollment No">
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock><Hyperlink Command="{Binding cmdSearchWithID}"
+                    						CommandParameter="{Binding EnrollmentNo}"><InlineUIContainer>
+                    							<TextBlock Text="{Binding EnrollmentNo}" />
+                    						</InlineUIContainer></Hyperlink></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn  Header="StudentId" Binding="{Binding StudentId}" Width="50" IsReadOnly="True" Visibility="Collapsed"   />
+                        <DataGridTextColumn Header="StudentName" Binding="{Binding FirstName}" Width="250" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="FatherName" Binding="{Binding FatherName}" Width="150" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="DateOfBirth" Binding="{Binding DateofBirthStr}" Width="100" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="LeavingDate" Binding="{Binding DateofLeavingStr}" Width="100" IsReadOnly="True"    />
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

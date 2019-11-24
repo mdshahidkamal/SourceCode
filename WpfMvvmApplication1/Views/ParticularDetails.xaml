@@ -1,0 +1,177 @@
+﻿<Window x:Class="IMS.Views.ParticularDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HospitalManagementSystem.Converters"
+             xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Width="540" Height="200" ResizeMode="NoResize"
+             Title="Particular Details"
+            WindowStartupLocation="CenterScreen" 
+        
+        >
+    <StackPanel>
+        
+        <Border Style="{StaticResource docborderstyle}">
+            <StackPanel>
+
+                <StackPanel>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"/>
+
+
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+
+
+                            <!--3-->
+                            <RowDefinition></RowDefinition>
+                            <!--4-->
+                            
+                        </Grid.RowDefinitions>
+
+                      
+
+                    
+
+                    </Grid>
+                </StackPanel>
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="55"></ColumnDefinition>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                            <ColumnDefinition Width="55"></ColumnDefinition>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                            <ColumnDefinition Width="55"></ColumnDefinition>
+                            <ColumnDefinition Width="90"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource labelstyle}"  >Product</Label>
+                        <Label Grid.Row="0" Grid.Column="6" Style="{StaticResource labelstyle}"  >HSN Code</Label>
+
+                        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource labelstyle}"  >Quantity</Label>
+                        <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource labelstyle}"  >Rate</Label>
+                        <Label Grid.Row="1" Grid.Column="4" Style="{StaticResource labelstyle}"    >Per</Label>
+                        <Label Grid.Row="1" Grid.Column="6" Style="{StaticResource labelstyle}"    >Amount</Label>
+
+                        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource labelstyle}" Visibility="Hidden"  >Other Charges</Label>
+                        <Label Grid.Row="2" Grid.Column="6" Style="{StaticResource labelstyle}"    >Taxable Amount</Label>
+
+                        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource labelstyle}"   >CGST</Label>
+                        <Label Grid.Row="3" Grid.Column="2" Style="{StaticResource labelstyle}"    >SGST</Label>
+                        <Label Grid.Row="3" Grid.Column="4" Style="{StaticResource labelstyle}"  >IGST</Label>
+                        <Label Grid.Row="3" Grid.Column="6" Style="{StaticResource labelstyle}"    >Tax</Label>
+
+                        <Label Grid.Row="4" Grid.Column="6" Style="{StaticResource labelstyle}"    >Total Amount</Label>
+
+                        <Controls:AutoCompleteBox  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4" Style="{StaticResource autocompleteboxstyle}"
+                                    Name="txtDescription"
+                                    ItemsSource="{Binding lstProducts}" 
+                                    SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" 
+                                    ValueMemberPath="ProductName"
+                                    IsTextCompletionEnabled="True" 
+                                    FilterMode="Contains"
+                                    ItemFilter="{Binding ProductFilter}" 
+                                    HorizontalAlignment="Left" Height="Auto" Margin="1,1,0,1" Width="188"
+                                    
+                                                           >
+                            <Controls:AutoCompleteBox.ItemTemplate>
+                                <DataTemplate x:Name="ItemTemplateProducts">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Style="{StaticResource labelstyle}"
+                                                Content="{Binding ProductId}"
+                                                Width="Auto" />
+                                        <Label Style="{StaticResource labelstyle}"
+                                                Content="{Binding ProductName}"
+                                                FontStyle="Italic"
+                                                Foreground="DarkGray" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </Controls:AutoCompleteBox.ItemTemplate>
+
+
+                        </Controls:AutoCompleteBox>
+
+                        <TextBox Name="txtHSNCode" Text="{Binding HSNCode}" Grid.Row="0" Grid.Column="7"  Width="100"
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="30" ></TextBox>
+
+                        <TextBox Name="txtQuantity" Text="{Binding Quantity}" Grid.Row="1" Grid.Column="1"  PreviewTextInput="TextBox_PreviewTextInput_1" 
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}"  Width="50" 
+                             MaxLength="4" Margin="1,1,0,1"                              ></TextBox>
+                        <TextBox Name="txtRate" Text="{Binding Rate,TargetNullValue={x:Static sys:String.Empty}}" Grid.Row="1" Grid.Column="3"  PreviewTextInput="TextBox_PreviewTextInput_1" 
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" 
+                             MaxLength="10"
+                             Width="50" Margin="1,1,0,1" ></TextBox>
+
+                        <ComboBox Name="cmbPer" Grid.Row="1" Grid.Column="5"
+                         Style="{StaticResource comboboxstyle}"
+                         ItemsSource="{Binding lstPer}" 
+                         SelectedItem="{Binding SelectedPer, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                         IsSynchronizedWithCurrentItem="True"
+                         DisplayMemberPath="StaticName" 
+                         SelectedValuePath="StaticID" 
+                              Width="50" Margin="1,1,0,1" 
+                          >
+
+                        </ComboBox>
+                        <TextBox Name="txtAmount" Text="{Binding Amount,TargetNullValue={x:Static sys:String.Empty}}" Grid.Row="1" Grid.Column="7"  Background="Azure" PreviewTextInput="TextBox_PreviewTextInput_1" 
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="10" Width="100" Margin="1,1,0,1"   ></TextBox>
+
+                        <TextBox Visibility="Hidden" Name="txtOtherCharges" Text="{Binding OtherCharges,TargetNullValue={x:Static sys:String.Empty}}" Grid.Row="2" Grid.Column="1"   PreviewTextInput="TextBox_PreviewTextInput_1" 
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="10" Width="50" Margin="1,1,0,1" ></TextBox>
+
+                        <TextBox Name="txtTaxableAmount" Text="{Binding TaxableAmount,TargetNullValue={x:Static sys:String.Empty}}" Grid.Row="2" Grid.Column="7" Background="Azure" PreviewTextInput="TextBox_PreviewTextInput_1"  
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="10" Width="100" Margin="1,1,0,1" ></TextBox>
+
+
+                        <TextBox Name="txtCGST" Text="{Binding CGST,TargetNullValue={x:Static sys:String.Empty}}"  Grid.Row="3" Grid.Column="1" PreviewTextInput="TextBox_PreviewTextInput_1" 
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="10" Width="50" Margin="1,1,0,1" ></TextBox>
+                        <TextBox Name="txtSGST" Text="{Binding SGST,TargetNullValue={x:Static sys:String.Empty}}" Grid.Row="3" Grid.Column="3"  PreviewTextInput="TextBox_PreviewTextInput_1"
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="10" Width="50" Margin="1,1,0,1" ></TextBox>
+                        <TextBox Name="txtIGST" Text="{Binding IGST,TargetNullValue={x:Static sys:String.Empty}}" Grid.Row="3" Grid.Column="5"  PreviewTextInput="TextBox_PreviewTextInput_1"
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="10" Width="50" Margin="1,1,0,1" ></TextBox>
+                        <TextBox Name="txtTotalTax" Text="{Binding TotalTax,TargetNullValue={x:Static sys:String.Empty}}" Grid.Row="3" Grid.Column="7"  Background="Azure"  PreviewTextInput="TextBox_PreviewTextInput_1" 
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="10" Width="100" Margin="1,1,0,1" ></TextBox>
+
+
+
+                        <TextBox Name="txtTotalAmount" Text="{Binding TotalAmount,TargetNullValue={x:Static sys:String.Empty}}" Grid.Row="4" Grid.Column="7"  Background="Azure"   PreviewTextInput="TextBox_PreviewTextInput_1" 
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="10" Width="100" Margin="1,1,0,1" ></TextBox>
+
+
+                    </Grid>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+        <StackPanel>
+            <Button Style="{StaticResource loginbuttonstyle}" Click="Button_Click_1" Command="{Binding cmdAddNewParticular}"  HorizontalAlignment="Center" Width="Auto" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  >
+                    <TextBlock Text="Add"></TextBlock>
+                    <Image Source="/IMS;component/Images/AddRed.png" Stretch="UniformToFill" Margin="2"></Image>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+    
+</Window>

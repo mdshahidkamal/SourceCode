@@ -1,0 +1,119 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using System.Data.OleDb;
+using HospitalManagementSystem.Helpers;
+using System.Configuration;
+namespace HospitalManagementSystem.DataAccess
+{
+    public static class DAL
+    {
+        public static Helpers.Logger logger;
+        static OleDbConnection oConn;
+        static DAL()
+        {
+            logger = Helpers.Logger.IntializeLogger();
+            GetConnectionString();
+        }
+        static void GetConnectionString()
+        {
+            try
+            {
+                string dbpath = ConfigurationSettings.AppSettings["db"].ToString();
+
+                //string strConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + dbpath + ";Persist Security Info=False;";
+                string strConnectionString = "Server=tcp:moskit.database.windows.net,1433;Database=moskitdb;User ID=moskitadmin@moskit;Password=pwdsql@4712;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                oConn = new OleDbConnection(strConnectionString);
+            }
+            catch (Exception ex)
+            {
+                logger.Log(((System.Data.OleDb.OleDbException)(ex)).Message, MessageType.Error);
+            }
+            finally
+            {
+                oConn.Close();
+            }
+        }
+
+        public static DataTable Select(string sql)
+        {
+            logger.Log(System.Reflection.MethodBase.GetCurrentMethod().Name, MessageType.Debug);
+            logger.Log(sql, MessageType.Debug);
+            DataTable dtResult = new DataTable();
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.Connection = oConn;
+            cmd.CommandType = CommandType.Text;
+            OleDbDataAdapter oDA = new OleDbDataAdapter(cmd);
+            try
+            {
+                oConn.Open();
+                oDA.Fill(dtResult);
+            }
+            catch (Exception ex)
+            {
+                logger.Log(((System.Data.OleDb.OleDbException)(ex)).Message, MessageType.Error);
+            }
+            finally
+            {
+                oConn.Close();
+            }
+
+            return dtResult;
+        }
+        public static int Execute(string sql)
+        {
+            int result = 0;
+            logger.Log(System.Reflection.MethodBase.GetCurrentMethod().Name, MessageType.Debug);
+            logger.Log(sql, MessageType.Debug);
+
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.Connection = oConn;
+            cmd.CommandType = CommandType.Text;
+
+            try
+            {
+                oConn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                logger.Log(((System.Data.OleDb.OleDbException)(ex)).Message, MessageType.Error);
+            }
+            finally
+            {
+                oConn.Close();
+            }
+
+            return result;
+        }
+        public static int ExecuteScalar(string sql)
+        {
+            int result = 0;
+            logger.Log(System.Reflection.MethodBase.GetCurrentMethod().Name, MessageType.Debug);
+            logger.Log(sql, MessageType.Debug);
+
+            OleDbCommand cmd = new OleDbCommand(sql);
+            cmd.Connection = oConn;
+            cmd.CommandType = CommandType.Text;
+
+            try
+            {
+                oConn.Open();
+                result = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                logger.Log(((System.Data.OleDb.OleDbException)(ex)).Message, MessageType.Error);
+            }
+            finally
+            {
+                oConn.Close();
+            }
+
+            return result;
+        }
+    }
+}

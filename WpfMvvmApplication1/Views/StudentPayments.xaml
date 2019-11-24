@@ -1,0 +1,381 @@
+﻿<UserControl x:Class="HospitalManagementSystem.Views.StudentPayments"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+             
+             >
+    <UserControl.Resources>
+        <Style x:Key="savebuttonstyle_validation"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="Margin" Value="1"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="IsEnabled" Value="True" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=cmbFeesType, Path=Text}" Value="--Select--" >
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=txtAmount, Path=Text}" Value="" >
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+             
+                <DataTrigger Binding="{Binding ElementName=txtComment, Path=Text}" Value="" >
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+
+               
+               
+                
+
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="trglabelstyle"
+           TargetType="{x:Type Label}"
+           BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="FontStyle"
+                Value="Normal" />
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="Visibility" Value="Hidden" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=cmbFeesType, Path=Text}" Value="Reversal" >
+                    <Setter Property="Visibility" Value="Visible" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="showhidestackpanel"
+           TargetType="{x:Type StackPanel}" >
+            <Setter Property="Visibility" Value="Collapsed" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=rdbCheque, Path=IsChecked}" Value="True" >
+                    <Setter Property="Visibility" Value="Visible" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="printbuttonstyle_validation" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"></Setter>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=dg_Result ,Path=PrintingChecked}" Value="Hold">
+                    <Setter Property="IsEnabled" Value="True" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+    </UserControl.Resources>
+    <Grid>
+
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Stretch" Width="Auto"  Background="#FF48958C">
+                <Label  Style="{StaticResource header1}" >
+                    Payment Details
+                </Label>
+            </StackPanel>
+            <StackPanel Background="#96C0CE">
+            <StackPanel Margin="0,10,0,10" Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label  Style="{StaticResource header1}">Search</Label>
+                <Controls:AutoCompleteBox  Margin="2" Height="30"
+                                    Name="txtMedicine"
+                                    ItemsSource="{Binding lstStudentDetails}" 
+                                    SelectedItem="{Binding SelectedStudentNew, Mode=TwoWay}" 
+                                    ValueMemberPath="FirstName"
+                                     
+                                    IsTextCompletionEnabled="True" 
+                                    FilterMode="Contains"
+                                    ItemFilter="{Binding StudentFilter}" 
+                              
+                           Style="{StaticResource autocompleteboxstyle}"
+                           Width="500" HorizontalAlignment="Left"   >
+
+                    <Controls:AutoCompleteBox.ItemTemplate>
+                        <DataTemplate x:Name="AutoCompleteBoxItemTemplate">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Style="{StaticResource labelstyle}"
+                                                Content="{Binding FirstName}"
+                                                Width="Auto" />
+                                <Label Style="{StaticResource labelstyle}"
+                                                Content="{Binding EnrollmentNo}"
+                                                FontStyle="Italic"
+                                                Foreground="DarkGray" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </Controls:AutoCompleteBox.ItemTemplate>
+
+
+                </Controls:AutoCompleteBox>
+
+                <Button Command="{Binding cmdGetStudentDetails}"  Style="{StaticResource loginbuttonstyle}" Width="30" Height="30" >
+                    <StackPanel>
+                        <Image Source="/IMS;component/Images/SearchICO.ico" Stretch="UniformToFill" ></Image>
+                    </StackPanel>
+
+                </Button>
+            </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Stretch" Width="Auto"    Background="#F1C272">
+                <Label  Style="{StaticResource header2}" HorizontalAlignment="Left"  >
+                    Student Detail
+                </Label>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Height="Auto" >
+                
+                    <Grid Width="600" HorizontalAlignment="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition ></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                            <RowDefinition ></RowDefinition>
+                        <RowDefinition ></RowDefinition>
+                    </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"></ColumnDefinition>
+                            <ColumnDefinition Width="50*"></ColumnDefinition>
+                            <ColumnDefinition Width="25*"/>
+
+
+
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource labelstyle}" Visibility="Collapsed" >Academic Year</Label>
+                        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource labelstyle}">Student Name</Label>
+                        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource labelstyle}">EnrollMent No</Label>
+                        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource labelstyle}" >Class</Label>
+                        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource labelstyle}">Fees Type *</Label>
+                        <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource labelstyle}">Amount *</Label>
+                        <Label Grid.Row="6" Grid.Column="0" Style="{StaticResource labelstyle}">Mode of Payment *</Label>
+                        <StackPanel Orientation="Horizontal" Grid.Row="8" Grid.Column="0" >
+                            <Label  Style="{StaticResource labelstyle}">Comments
+                            </Label>
+                            <Label Name="lblMandatoryComments" VerticalContentAlignment="Center"  Style="{StaticResource labelstyle}">*</Label>
+                        </StackPanel>
+
+
+
+
+                    <TextBox HorizontalAlignment="Left" Text="{Binding AcademicYear}" Grid.Row="0" Grid.Column="1" Style="{StaticResource textboxstyle}" Width="250" IsReadOnly="True" Visibility="Collapsed" />
+                        <TextBox HorizontalAlignment="Left" Text="{Binding FullName}" Grid.Row="1" Grid.Column="1" Style="{StaticResource textboxstyle}" Width="250" IsReadOnly="True" />
+                        <TextBox HorizontalAlignment="Left" Text="{Binding EnrollmentNo}" Grid.Row="2" Grid.Column="1" Style="{StaticResource textboxstyle}" Width="250" IsReadOnly="True" />
+                    <TextBox HorizontalAlignment="Left" Text="{Binding ClassRoom}" Grid.Row="3" Grid.Column="1" Style="{StaticResource textboxstyle}" Width="250" IsReadOnly="True" />
+                    <!--<ComboBox Margin="2,2,0,2" Grid.Row="3" Grid.Column="1"    Width="250" HorizontalAlignment="Left"
+                                          ItemsSource="{Binding lstFeesType}" 
+                                          SelectedItem="{Binding SelectedFees, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                          IsSynchronizedWithCurrentItem="True"
+                                          DisplayMemberPath="StaticName" 
+                                          SelectedValuePath="StaticID" 
+                                          Name="cmbFeesType"
+                                          />-->
+                        <StackPanel Grid.Row="4" Grid.Column="1" >
+                                <ItemsControl ItemsSource="{Binding lstFeesType}" >
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Margin="2"  HorizontalAlignment="Left" >
+                                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" >
+                                                    <CheckBox IsChecked="{Binding IsCheckControl, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ></CheckBox>
+                                                    <TextBlock Text="{Binding StaticName}"></TextBlock>
+                                                </StackPanel>
+
+                                            </StackPanel>
+
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                        </StackPanel>
+
+
+                        <TextBox  Name="txtAmount" Text="{Binding Amount}" Grid.Row="5" Grid.Column="1"
+                                  Width="150" Style="{StaticResource textboxstyle}" HorizontalAlignment="Left" 
+                                  MaxLength="6"
+                                   PreviewTextInput="TextBox_PreviewTextInput_1" 
+                                  />
+
+                        <StackPanel Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"  Orientation="Horizontal" Margin="2">
+                        <RadioButton GroupName="MOP"  Name="rdbCash" IsChecked="{Binding Cash}" >Cash</RadioButton>
+                            <RadioButton GroupName="MOP" Name="rdbCheque" IsChecked="{Binding Cheque}">Cheque</RadioButton>
+                        </StackPanel>
+                        <StackPanel  Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" 
+                                     Orientation="Vertical" Style="{StaticResource showhidestackpanel}" >
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30*"></ColumnDefinition>
+                                    <ColumnDefinition Width="80*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" Grid.Row="0" >Cheque No</Label>
+                                <TextBox Grid.Column="1" Grid.Row="0" Margin="1" 
+                                         Name="txtChequeNo"  Text="{Binding ChequeNo}" 
+                                         Width="150" Style="{StaticResource textboxstyle}" 
+                                         PreviewTextInput="TextBox_PreviewTextInput_1" 
+                                         HorizontalAlignment="Left" Height="Auto" />
+
+                                <Label Grid.Column="0" Grid.Row="1">Branch Details</Label>
+                                <TextBox Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Left" 
+                                         Name="txtBranchDetail" Width="150" Style="{StaticResource textboxstyle}"
+                                         Margin="1"
+                                         Text="{Binding BankBranchDetails}" 
+                                         TextWrapping="Wrap" 
+                                         AcceptsReturn="True" Height="40" 
+                                         VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
+                                        MaxLength="100"
+                                         />
+
+                            </Grid>
+
+
+
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Grid.Row="8" Grid.Column="1" >
+                            <TextBox  HorizontalAlignment="Left" Name="txtComment"  Width="250" Style="{StaticResource textboxstyle}"
+                                         Text="{Binding Comments}"  
+                                         Margin="1"
+                                         TextWrapping="Wrap" 
+                                         AcceptsReturn="True" Height="80" MaxLength="200"
+                                         VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
+                                      
+                                     
+                                         />
+                            <Label   Style="{StaticResource trglabelstyle}" Foreground="Red" FontSize="11" FontStyle="Italic" >(Please Fill Comments)</Label>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Grid.Row="2" Grid.RowSpan="3" HorizontalAlignment="Left" >
+                            <Image Source="{Binding ImageSource}" Width="80" Height="Auto" Name="imgPhoto" Effect="{StaticResource dropShadow}" >
+                            </Image>
+                        </StackPanel>
+
+                    </Grid>
+                
+
+
+            </StackPanel>
+            <StackPanel >
+                <StackPanel Width="Auto" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource savebuttonstyle_validation}"  Command="{Binding cmdsave}" HorizontalAlignment="Center" HorizontalContentAlignment="Left" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  >
+                            <TextBlock Text="Save" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                            <Image Source="/IMS;component/Images/SaveICO.ico" Stretch="Fill" Width="20" Margin="5,0,0,0" ></Image>
+                        </StackPanel>
+
+                    </Button>
+                    <Button  Style="{StaticResource printbuttonstyle_validation}" Click="Print_Click"  Command="{Binding cmdGeneratePaymentReciept}" HorizontalAlignment="Center" HorizontalContentAlignment="Left"  Height="25">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  >
+                            <TextBlock Text="Print" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                            <Image  Source="/IMS;component/Images/PrinterIcon.png" Stretch="UniformToFill" Width="20" Margin="5,0,0,0"></Image>
+                        </StackPanel>
+
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Stretch" Width="Auto"   Background="#F1C272" Margin="0,10,0,2">
+                <Label  Width="Auto"   HorizontalAlignment="Left"  Style="{StaticResource header2}"  >
+                    Payment History
+                </Label>
+            </StackPanel>
+            
+                <StackPanel>
+                    <DataGrid   
+                                    ItemsSource="{Binding lstStudentPaymentDetails}" 
+                                    Background="White" GridLinesVisibility="All"
+                                    RowHeaderWidth="0"
+                                    CanUserAddRows="False" 
+                                    SelectionChanged="DataGrid_SelectionChanged_1" 
+                                    IsReadOnly="True"
+                                    AutoGenerateColumns="False" 
+                                    VerticalContentAlignment="Center"  
+                                    Name="dg_Result"
+                            
+                          >
+
+
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#8ECACB"/>
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="FontFamily" Value="Roboto" />
+                                <Setter Property="FontSize" Value="10" />
+                             </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </DataGrid.CellStyle>
+
+                        <DataGrid.Columns>
+                            <!--<DataGridTextColumn Header="Fees Type" Binding="{Binding PaymentType}" Width="150" IsReadOnly="True"    />-->
+
+                            <DataGridTemplateColumn Header="">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <RadioButton GroupName="printingchecked" IsChecked="{Binding PrintingChecked, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ></RadioButton>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Fees Type">
+
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock HorizontalAlignment="Left" Name="txtFeesType" Text="{Binding PaymentType}" Grid.Row="4" Grid.Column="1"    Width="250" 
+                                                             TextWrapping="Wrap" Height="Auto" Grid.ColumnSpan="2"  >
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+
+                            <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="100" IsReadOnly="True"    />
+                            <DataGridTemplateColumn Header="Payment Type">
+
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock HorizontalAlignment="Left" Name="txtPaymentType" Text="{Binding ModeofPayment}" Grid.Row="4" Grid.Column="1"    Width="250" 
+                                                             TextWrapping="Wrap" Height="Auto" Grid.ColumnSpan="2"  >
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+
+                            <!--<DataGridTextColumn Header="Comments"  Binding="{Binding Comments}" Width="350"  IsReadOnly="True"    />-->
+
+                            <DataGridTemplateColumn Header="Comments">
+
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock HorizontalAlignment="Left" Name="txtComment" Text="{Binding Comments}" Grid.Row="4" Grid.Column="1"    Width="250" 
+                                                             TextWrapping="Wrap" Height="Auto" Grid.ColumnSpan="2"  >
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Academic Year" Binding="{Binding AcademicYear}" Width="150" IsReadOnly="True"    />
+                            <DataGridTextColumn Header="Date" Binding="{Binding CreatedDateTime}" Width="150" IsReadOnly="True"    />
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
+                </StackPanel>
+            
+
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

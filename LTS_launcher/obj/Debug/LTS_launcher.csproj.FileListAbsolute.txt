@@ -1,0 +1,97 @@
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\Login.baml
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\Login.g.cs
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\MainWindow.g.cs
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\App.g.cs
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\LTS_launcher_MarkupCompile.cache
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\LTS_launcher_MarkupCompile.lref
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\bin\Debug\LTS_launcher.exe.config
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\bin\Debug\LTS_launcher.exe
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\bin\Debug\LTS_launcher.pdb
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\MainWindow.baml
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\LTS_launcher.g.resources
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\LTS_launcher.Properties.Resources.resources
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\LTS_launcher.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\LTS_launcher.exe
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\obj\Debug\LTS_launcher.pdb
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\bin\Debug\System.Net.Http.dll
+C:\Users\user\Desktop\Project\LetterTrackingSystem\LTS_launcher\bin\Debug\System.Net.Http.xml
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\bin\Debug\LTS_launcher.exe.config
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\bin\Debug\LTS_launcher.exe
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\bin\Debug\LTS_launcher.pdb
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\bin\Debug\System.Net.Http.dll
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\bin\Debug\System.Net.Http.xml
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\Login.baml
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\Login.g.cs
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\MainWindow.g.cs
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\App.g.cs
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\LTS_launcher_MarkupCompile.cache
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\LTS_launcher_MarkupCompile.lref
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\MainWindow.baml
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\LTS_launcher.g.resources
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\LTS_launcher.Properties.Resources.resources
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\LTS_launcher.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\LTS_launcher.exe
+C:\Users\user\Desktop\Project\Hospital Management System WPF\LTS_launcher\obj\Debug\LTS_launcher.pdb
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\bin\Debug\MoskIT.exe.config
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\bin\Debug\MoskIT.exe.manifest
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\bin\Debug\MoskIT.application
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\bin\Debug\MoskIT.exe
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\bin\Debug\MoskIT.pdb
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\bin\Debug\System.Net.Http.dll
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\bin\Debug\System.Net.Http.xml
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\Login.baml
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\Login.g.cs
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MainWindow.g.cs
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\App.g.cs
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MoskIT_MarkupCompile.cache
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MoskIT_MarkupCompile.lref
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MainWindow.baml
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MoskIT.g.resources
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\LTS_launcher.Properties.Resources.resources
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\LTS_launcher.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MoskIT.TrustInfo.xml
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MoskIT.exe.manifest
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MoskIT.application
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MoskIT.exe
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\MoskIT.pdb
+C:\Users\user\Desktop\Project\SMS\Code\LTS_launcher\obj\Debug\LTS_launcher.csprojResolveAssemblyReference.cache
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\LTS_launcher.csprojResolveAssemblyReference.cache
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\Login.baml
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\Login.g.cs
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MainWindow.g.cs
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\App.g.cs
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MoskIT_MarkupCompile.cache
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MoskIT_MarkupCompile.lref
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MainWindow.baml
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MoskIT.g.resources
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\LTS_launcher.Properties.Resources.resources
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\LTS_launcher.csproj.GenerateResource.Cache
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MoskIT.TrustInfo.xml
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MoskIT.exe
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MoskIT.pdb
+E:\Projects\SMS\Code\LTS_launcher\bin\Debug\MoskIT.exe.config
+E:\Projects\SMS\Code\LTS_launcher\bin\Debug\MoskIT.exe.manifest
+E:\Projects\SMS\Code\LTS_launcher\bin\Debug\MoskIT.application
+E:\Projects\SMS\Code\LTS_launcher\bin\Debug\MoskIT.exe
+E:\Projects\SMS\Code\LTS_launcher\bin\Debug\MoskIT.pdb
+E:\Projects\SMS\Code\LTS_launcher\bin\Debug\System.Net.Http.dll
+E:\Projects\SMS\Code\LTS_launcher\bin\Debug\System.Net.Http.xml
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MoskIT.exe.manifest
+E:\Projects\SMS\Code\LTS_launcher\obj\Debug\MoskIT.application
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\LTS_launcher.csprojAssemblyReference.cache
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\Login.baml
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\Login.g.cs
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\MainWindow.g.cs
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\App.g.cs
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\Launcher_MarkupCompile.cache
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\Launcher_MarkupCompile.lref
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\MainWindow.baml
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\Launcher.g.resources
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\MoskIT.Properties.Resources.resources
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\LTS_launcher.csproj.GenerateResource.cache
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\LTS_launcher.csproj.CoreCompileInputs.cache
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\Launcher.pdb
+E:\Projects\IMS\Code\LTS_launcher\bin\Debug\Launcher.exe.config
+E:\Projects\IMS\Code\LTS_launcher\bin\Debug\Launcher.exe
+E:\Projects\IMS\Code\LTS_launcher\bin\Debug\Launcher.pdb
+E:\Projects\IMS\Code\LTS_launcher\obj\Debug\Launcher.exe

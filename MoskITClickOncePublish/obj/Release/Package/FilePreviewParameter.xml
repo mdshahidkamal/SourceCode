@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="moskit" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\user\\Desktop\\Project\\SMS\\Code\\MoskITClickOncePublish\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\user\\Desktop\\Project\\SMS\\Code\\MoskITClickOncePublish\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-MoskITClickOncePublish-20151201193658;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-MoskITClickOncePublish-20151201193658.mdf" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\user\\Desktop\\Project\\SMS\\Code\\MoskITClickOncePublish\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

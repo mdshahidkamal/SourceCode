@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="LetterTrackingSystem.Views.SearchLetter"
+             xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:HospitalManagementSystem.Converters"
+             xmlns:view="clr-namespace:HospitalManagementSystem.Views"
+             
+             Width="Auto" Height="Auto">
+    <UserControl.Resources>
+        <local:BoolToVisibilityConverter
+         x:Key="BoolToHiddenConverter"
+         TrueValue="Visible" FalseValue="Hidden" />
+
+
+    </UserControl.Resources>
+    <Grid>
+        <Border BorderBrush="Transparent" BorderThickness="1" Margin="5" >
+            <StackPanel Height="584"  >
+                <StackPanel HorizontalAlignment="Stretch" Width="Auto"  Margin="1" Background="#FF48958C">
+                    <Label  Width="Auto"   HorizontalAlignment="Left"  FontSize="15" Foreground="#FFF7F3F3"  >
+                        Search
+                    </Label>
+                </StackPanel>
+                <Border BorderBrush="#FF48958C" BorderThickness="1" Margin="1" >
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Style="{StaticResource labelstyle}">Key Word</Label>
+                            <TextBox Text="{Binding KeyWord}" Style="{StaticResource textboxstyle}" Width="200" Margin="2" SpellCheck.IsEnabled="True">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Command="{Binding Path=cmdSearchOnEnter}" Key="Enter" />
+                                </TextBox.InputBindings>
+                            </TextBox>
+                            <CheckBox IsChecked="{Binding isCheckedRefNo}"  Margin="5" FontSize="15">Ref No</CheckBox>
+                            <CheckBox IsChecked="{Binding isCheckedSubject}" Margin="5" FontSize="15">Subject</CheckBox>
+                            <CheckBox  IsChecked="{Binding isCheckedFrom}" Margin="5" FontSize="15">From</CheckBox>
+                            <CheckBox IsChecked="{Binding isCheckedTo}" Margin="5" FontSize="15">To</CheckBox>
+                            <CheckBox IsChecked="{Binding isCheckedComments}" Margin="5" FontSize="15">Comments</CheckBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Width="Auto" Margin="0,0,0,2">
+                            <Label Style="{StaticResource labelstyle}">
+                                <Run Text="From Date"/>
+                            </Label>
+                            <DatePicker SelectedDate="{Binding FromDate}" Height="25" FontSize="15"/>
+                            <Label Style="{StaticResource labelstyle}">
+                                <Run Text="To Date"/>
+                            </Label>
+                            <DatePicker SelectedDate="{Binding ToDate}" Margin="10,0,0,0" Height="25" FontSize="15"/>
+                            <Button Style="{StaticResource ResourceKey=loginbuttonstyle}"  Command="{Binding cmdSearch}" Width="Auto" >
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/IMS;component/Images/search.png" Margin="2"></Image>
+                                </StackPanel>
+                            </Button>
+                            <Button  Width="30" Height="25" Margin="4,4,0,0"   Command="{Binding cmdexport}"  Visibility="Hidden">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/IMS;component/Images/xls.png" Stretch="Uniform" ></Image>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <DataGrid Height="400" AlternatingRowBackground="#FFDDE4E6" ItemsSource="{Binding SearchResult}" Background="White"
+                            RowHeaderWidth="0"
+                            CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged_1" Cursor="Hand"
+                          AutoGenerateColumns="False" 
+                      Margin="2"
+                          >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#FF48958C"/>
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="FontFamily" Value="Tangerine" />
+                            <Setter Property="FontSize" Value="15" />
+                            <Setter Property="FontWeight" Value="Medium"/>
+
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Sr No">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock><Hyperlink Command="{Binding cmdSearchWithID}"
+                    						CommandParameter="{Binding ID}"><InlineUIContainer>
+                    							<TextBlock Text="{Binding ID}" />
+                    						</InlineUIContainer></Hyperlink></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="SrNo" Binding="{Binding ID}" Width="50" IsReadOnly="True" Visibility="Collapsed"   />
+                        <DataGridTextColumn Header="Reference No" Binding="{Binding ReferenceNumber}" Width="150" IsReadOnly="True"   />
+                        <DataGridTextColumn Header="Arrival Date" Binding="{Binding RecivedDate}" Width="100" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="Subject" Binding="{Binding Subject}" Width="200" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="From" Binding="{Binding From}" Width="150" IsReadOnly="True"    />
+                        <DataGridTextColumn Header="To" Binding="{Binding To}" Width="150" IsReadOnly="True"   />
+                        <DataGridTextColumn Header="Comments" Binding="{Binding Comments}" Width="300" IsReadOnly="True"   />
+                    </DataGrid.Columns>
+
+                </DataGrid>
+                <TextBlock HorizontalAlignment="Right" Margin="0" Visibility="{Binding isfiledownloaded, 
+                          Converter={StaticResource BoolToHiddenConverter}}" >File Downloaded Successfully</TextBlock>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

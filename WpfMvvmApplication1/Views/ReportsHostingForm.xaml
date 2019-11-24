@@ -1,0 +1,20 @@
+﻿<Window x:Class="HospitalManagementSystem.Views.ReportsHostingForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" 
+            Icon="/IMS;component/Images/AppitLogo.png"
+           >
+    <Grid>
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel>
+                <WindowsFormsHost Name="windowsFormsHost1" Width="800" Height="400" HorizontalAlignment="Left" >
+                    <rv:ReportViewer x:Name="_reportViewer"  ShowBackButton="False" ShowExportButton="True" ShowFindControls="False" ShowPageNavigationControls="False" ShowRefreshButton="False" ShowStopButton="False" ShowZoomControl="False"  Height="1500">
+                    </rv:ReportViewer>
+                </WindowsFormsHost>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

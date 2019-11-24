@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\bin\Debug\OCR.exe.config
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\bin\Debug\OCR.exe.manifest
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\bin\Debug\OCR.application
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\bin\Debug\OCR.exe
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\bin\Debug\OCR.pdb
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\obj\Debug\OCR.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\obj\Debug\Interop.MODI.dll
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\obj\Debug\OCR.csproj.ResolveComReference.cache
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\obj\Debug\OCR.exe.manifest
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\obj\Debug\OCR.application
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\obj\Debug\OCR.exe
+C:\Users\user\Desktop\Project\LetterTrackingSystem\OCR\obj\Debug\OCR.pdb

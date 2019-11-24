@@ -1,0 +1,183 @@
+﻿<UserControl xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"  
+             x:Class="HospitalManagementSystem.Views.PatientDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:HospitalManagementSystem.Converters"
+              
+             Width="Auto" Height="Auto">
+    <UserControl.Resources>
+        <local:BoolToVisibilityConverter
+         x:Key="BoolToHiddenConverter"
+         TrueValue="Visible" FalseValue="Hidden" />
+        <local:StreamToImageConverter x:Key="imageConverter"/>
+    </UserControl.Resources>
+
+    <StackPanel Margin="4" Orientation="Horizontal" Width="Auto">
+        <StackPanel>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="5">
+                <StackPanel>
+                    <StackPanel Grid.Row="0"  HorizontalAlignment="Stretch" Width="Auto"  Margin="1" Grid.ColumnSpan="2" Background="#FF48958C">
+
+                        <Label  Width="Auto" HorizontalAlignment="Left"  FontSize="12" Foreground="#FFF7F3F3"  >
+                            Letter Details
+                        </Label>
+                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"></ColumnDefinition>
+                            <ColumnDefinition Width="485*"></ColumnDefinition>
+                            <ColumnDefinition Width="8*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource labelstyle}" >Image Path</Label>
+                        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource labelstyle}" >Reference No</Label>
+                        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource labelstyle}" >Subject</Label>
+                        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource labelstyle}" >Arrival Date</Label>
+                        <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource labelstyle}" >From</Label>
+                        <Label Grid.Row="6" Grid.Column="0" Style="{StaticResource labelstyle}" >To</Label>
+                        <Label Grid.Row="7" Grid.Column="0" Style="{StaticResource labelstyle}" >Comments</Label>
+
+                        <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" >
+                            <TextBox Name="txtFileName" Text="{Binding Imagepath}" HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" Width="392"  TextWrapping="Wrap" ></TextBox>
+                            <Button Style="{StaticResource ResourceKey=loginbuttonstyle}"  Grid.Row="7" Grid.Column="1" Click="Button_Click_1" HorizontalAlignment="Center" Margin="0,0,0,0" Height="25" Width="85" >Upload Image
+                            </Button>
+                        </StackPanel>
+                        <TextBox Text="{Binding ReferenceNumber}" Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" Width="392" SpellCheck.IsEnabled="True" Margin="1,3,0,2"></TextBox>
+                        <TextBox Text="{Binding Subject}" Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" Width="392"  SpellCheck.IsEnabled="True" Margin="1,2,0,3"></TextBox>
+                        <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Margin="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+                            <DatePicker SelectedDate="{Binding RecivedDate}" Height="25" Width="100" FontSize="11"/>
+                        </StackPanel>
+                        <TextBox Text="{Binding From}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" Width="392" SpellCheck.IsEnabled="True" Margin="1,2,0,3"></TextBox>
+                        <TextBox Text="{Binding To}" Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" Width="392"  TextWrapping="Wrap"  SpellCheck.IsEnabled="True" Margin="1,3,0,2" ></TextBox>
+                        <TextBox Text="{Binding Comments}" Grid.Row="7" Grid.Column="1"  HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" Width="392" Height="50" AcceptsReturn="True"    TextWrapping="Wrap"  SpellCheck.IsEnabled="True" Margin="1,1,0,1" ></TextBox>
+
+                    </Grid>
+
+                    <StackPanel  Margin="1"  Orientation="Horizontal">
+                        <Button Style="{StaticResource loginbuttonstyle}"  Command="{Binding cmdsave}" HorizontalAlignment="Center" >
+
+                            <StackPanel Orientation="Horizontal">
+                                <AccessText>_Save</AccessText>
+                                <Image Source="/LTS;component/Images/save.png" Margin="2"></Image>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="5" >
+                <StackPanel  >
+                    <StackPanel HorizontalAlignment="Stretch" Width="Auto"  Margin="1" Background="#FF48958C">
+                        <Label  Width="Auto"   HorizontalAlignment="Left"  FontSize="12" Foreground="#FFF7F3F3"  >
+                            Search
+                        </Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Style="{StaticResource labelstyle}">Key Word</Label>
+                        <TextBox Text="{Binding KeyWord}" Style="{StaticResource textboxstyle}" Width="200" Margin="2" SpellCheck.IsEnabled="True">
+                            <TextBox.InputBindings>
+                                <KeyBinding Command="{Binding Path=cmdSearchOnEnter}" Key="Enter" />
+                            </TextBox.InputBindings>
+                        </TextBox>
+                        <CheckBox IsChecked="{Binding isCheckedRefNo}"  Margin="5">Ref No</CheckBox>
+                        <CheckBox IsChecked="{Binding isCheckedSubject}" Margin="5">Subject</CheckBox>
+                        <CheckBox  IsChecked="{Binding isCheckedFrom}" Margin="5">From</CheckBox>
+                        <CheckBox IsChecked="{Binding isCheckedTo}" Margin="5">To</CheckBox>
+                        <CheckBox IsChecked="{Binding isCheckedComments}" Margin="5">Comments</CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Width="Auto" Margin="0,0,0,2">
+                        <Label Style="{StaticResource labelstyle}">
+                            <Run Text="From Date"/>
+                        </Label>
+                        <DatePicker SelectedDate="{Binding FromDate}" Height="25"/>
+                        <Label Style="{StaticResource labelstyle}">
+                            <Run Text="To Date"/>
+                        </Label>
+                        <DatePicker SelectedDate="{Binding ToDate}" Margin="10,0,0,0" Height="24"/>
+                        <Button Style="{StaticResource ResourceKey=loginbuttonstyle}"  Command="{Binding cmdSearch}" Width="Auto" >
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/LTS;component/Images/search.png" Margin="2"></Image>
+                            </StackPanel>
+                        </Button>
+                        <Button  Width="30" Height="25" Margin="4,4,0,0"   Command="{Binding cmdexport}"  Visibility="Hidden">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/LTS;component/Images/xls.png" Stretch="Uniform" ></Image>
+                            </StackPanel>
+                        </Button>
+
+                    </StackPanel>
+
+                    <DataGrid Height="400" AlternatingRowBackground="#FFDDE4E6" ItemsSource="{Binding  SearchResult }" Background="White"
+                            RowHeaderWidth="0"
+                            CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged_1" Cursor="Hand"
+                          AutoGenerateColumns="False"
+                      Margin="2"
+                          >
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FF48958C"/>
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                <Setter Property="FontFamily" Value="Tangerine" ></Setter>
+                                <Setter Property="FontSize" Value="11" ></Setter>
+                                <Setter Property="FontWeight" Value="Medium"></Setter>
+
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Reference No" Binding="{Binding ReferenceNumber}" Width="Auto"   />
+                            <DataGridTextColumn Header="Subject" Binding="{Binding Subject}" Width="Auto"    />
+                            <DataGridTextColumn Header="Arrival Date" Binding="{Binding RecivedDate}" Width="Auto"    />
+                            <DataGridTextColumn Header="From" Binding="{Binding From}" Width="Auto"    />
+                            <DataGridTextColumn Header="To" Binding="{Binding To}" Width="Auto"   />
+                            <DataGridTextColumn Header="Comments" Binding="{Binding Comments}" Width="Auto"   />
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                    <TextBlock HorizontalAlignment="Right" Margin="0" Visibility="{Binding isfiledownloaded, 
+                          Converter={StaticResource BoolToHiddenConverter}}" >File Downloaded Successfully</TextBlock>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <StackPanel>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="5" >
+                <StackPanel>
+                    <StackPanel Background="#FF48958C" Margin="1">
+                        <Label  Width="Auto" HorizontalAlignment="Left"  FontSize="12" Foreground="#FFF7F3F3"  >
+                            Letter Content
+                        </Label>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBox Name="txtLetterContent" Style="{StaticResource textboxstyle}" Text="{Binding LetterContent}" Height="Auto" Width="{Binding ScreenWidth}" TextWrapping="Wrap"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <!--<Border BorderBrush="Black" BorderThickness="1" Margin="5" >-->
+            <!--<StackPanel>-->
+
+            <!--<Image Name="imgLetter" Source="{Binding ImagePath}" ></Image>-->
+            <!--<Image Name="imgLetter" Source="{Binding Path=NodeImage, Converter={StaticResource imageConverter}}" Height="300" Width="440" Stretch="UniformToFill"></Image>-->
+
+            <!--</StackPanel>-->
+            <!--</Border>-->
+        </StackPanel>
+
+
+    </StackPanel>
+
+
+
+</UserControl>

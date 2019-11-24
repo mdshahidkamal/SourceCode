@@ -1,0 +1,16 @@
+C:\Users\user\Desktop\Project\Hospital Management System WPF\TestConnectionString\bin\Debug\TestConnectionString.exe
+C:\Users\user\Desktop\Project\Hospital Management System WPF\TestConnectionString\bin\Debug\TestConnectionString.pdb
+C:\Users\user\Desktop\Project\Hospital Management System WPF\TestConnectionString\obj\Debug\TestConnectionString.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Project\Hospital Management System WPF\TestConnectionString\obj\Debug\TestConnectionString.Form1.resources
+C:\Users\user\Desktop\Project\Hospital Management System WPF\TestConnectionString\obj\Debug\TestConnectionString.Properties.Resources.resources
+C:\Users\user\Desktop\Project\Hospital Management System WPF\TestConnectionString\obj\Debug\TestConnectionString.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Project\Hospital Management System WPF\TestConnectionString\obj\Debug\TestConnectionString.exe
+C:\Users\user\Desktop\Project\Hospital Management System WPF\TestConnectionString\obj\Debug\TestConnectionString.pdb
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\bin\Debug\TestConnectionString.exe
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\bin\Debug\TestConnectionString.pdb
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Debug\TestConnectionString.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Debug\TestConnectionString.Form1.resources
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Debug\TestConnectionString.Properties.Resources.resources
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Debug\TestConnectionString.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Debug\TestConnectionString.exe
+C:\Users\user\Desktop\Project\SMS\Code\TestConnectionString\obj\Debug\TestConnectionString.pdb

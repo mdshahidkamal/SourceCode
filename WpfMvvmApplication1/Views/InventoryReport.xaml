@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="IMS.Views.InventoryReport"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HospitalManagementSystem.Converters"
+             xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Width="Auto" Height="Auto">
+    <Grid>
+        <Border Style="{StaticResource docborderstyle}">
+            <StackPanel >
+                <StackPanel Width="Auto" Style="{StaticResource stackpanelstyle2}">
+                    <Label Style="{StaticResource labelstyle}"  Width="Auto"   HorizontalAlignment="Left" >
+                        Inventory Details
+                    </Label>
+                </StackPanel>
+                <Button Style="{StaticResource savebuttonstyle}" Command="{Binding cmdRefresh}"  HorizontalAlignment="Left" >
+                    <StackPanel Orientation="Horizontal"  >
+                        <TextBlock Text="Refresh"></TextBlock>
+                        <Image Source="/IMS;component/Images/reload.ico" Stretch="UniformToFill" Width="20" ></Image>
+                    </StackPanel>
+
+                </Button>
+                <DataGrid   ItemsSource="{Binding lstInventoryDetails}" Background="White" GridLinesVisibility="None" 
+                            
+                            RowHeaderWidth="0"
+                            CanUserAddRows="False"  Cursor="Hand" 
+                            AutoGenerateColumns="False" 
+                            Margin="1" VerticalScrollBarVisibility="Visible" Height="500" VerticalContentAlignment="Center" 
+                            
+                          >
+
+                    <DataGrid.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="FontFamily" Value="Calibri" />
+                            <Setter Property="FontSize" Value="14"></Setter>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Setter Property="FontFamily" Value="Calibri" />
+                            <Setter Property="FontSize" Value="14"></Setter>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn  Width="10">
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock><Hyperlink>
+                                                <InlineUIContainer>
+                    							    <Button Click="Button_Click_1">...</Button>
+                    						    </InlineUIContainer></Hyperlink>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" Width="400" IsReadOnly="True"    />
+
+                        <DataGridTemplateColumn Header="Balance" Width="150">
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Quantity}">
+                                        <TextBlock.Style>
+                                            <Style  TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Quantity, ConverterParameter=0, Converter={StaticResource IsLowerThanConverter}}" Value="True">
+                                                        <Setter Property="Foreground"  Value="White" />
+                                                        <Setter Property="Background"  Value="#F08080" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Per" Binding="{Binding PerName}" Width="60" IsReadOnly="True"    />
+                        
+
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

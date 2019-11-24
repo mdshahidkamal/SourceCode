@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="HospitalManagementSystem.Views.ChartReports"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HospitalManagementSystem.Views"
+             xmlns:DV="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+             xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+             Height="400"
+             >
+    <Grid >
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,10" Width="Auto">
+                <Label Style="{StaticResource labelstyle}">
+                    <Run Text="Academic Year"/>
+                </Label>
+                <ComboBox Name="cmbAcademicYear" Grid.Row="14" Grid.Column="1" Margin="2" Width="200"
+                         ItemsSource="{Binding lstAcademicYear}" 
+                         SelectedItem="{Binding SelectedAcademicYear, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                         IsSynchronizedWithCurrentItem="True"
+                         DisplayMemberPath="StaticName" 
+                         SelectedValuePath="StaticID" 
+                          >
+                </ComboBox>
+
+
+                <Button Style="{StaticResource ResourceKey=loginbuttonstyle}" Click="btnSearch" Margin="10,0,0,0"  
+                        Width="Auto" Height="30">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/IMS;component/Images/search.png" ></Image>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <DVC:Chart Canvas.Top="80" Canvas.Left="10" Name="mcChart" Width="400" Height="200" Title="Income/Expense Chart">
+                        <DVC:Chart.Series>
+
+
+                            <DVC:ColumnSeries Name="Income"
+                                                Title="Income"  
+                                                DependentValuePath="Value" 
+                                                IndependentValuePath="Key"
+                                                ItemsSource="{Binding [0]}"
+                                                IsSelectionEnabled="True"
+                                                DataContext="{Binding}"
+                                          >
+
+                            </DVC:ColumnSeries>
+                            <DVC:ColumnSeries Name="Expense" 
+                                                Title="Expense"  
+                                                DependentValuePath="Value" 
+                                                IndependentValuePath="Key"
+                                                ItemsSource="{Binding [1]}"
+                                                IsSelectionEnabled="True" 
+                                                DataContext="{Binding}"
+                                          
+                                          />
+
+
+
+                        </DVC:Chart.Series>
+                    </DVC:Chart>
+                </StackPanel>
+                <StackPanel Margin="5,0,0,0">
+                    <DVC:Chart Canvas.Top="80" Canvas.Left="10" Name="expenseChart" Width="400" Height="200" Title="Expense Chart">
+                        <DVC:Chart.Series>
+
+                            <DVC:PieSeries Name="ExpenseData"
+                                                Title="Expense Data"  
+                                                DependentValuePath="Value" 
+                                                IndependentValuePath="Key"
+                                                ItemsSource="{Binding [0]}"
+                                                IsSelectionEnabled="True"
+                                                DataContext="{Binding}"
+                                          >
+
+                            </DVC:PieSeries>
+
+
+
+                        </DVC:Chart.Series>
+                    </DVC:Chart>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

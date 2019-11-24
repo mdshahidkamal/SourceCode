@@ -1,0 +1,305 @@
+﻿<UserControl x:Class="IMS.Views.Billing"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HospitalManagementSystem.Converters"
+             xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+                xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Height="653.5"
+>
+    <UserControl.Resources>
+        <local:BoolToVisibilityConverter
+         x:Key="BoolToHiddenConverter"
+         TrueValue="Visible" FalseValue="Hidden" />
+
+
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel Orientation="Vertical" Margin="5">
+                <Border Style="{StaticResource simpleborder}" >
+                    <StackPanel  >
+
+                        <StackPanel Width="Auto" Style="{StaticResource stackpanelstyle2}">
+                            <Label Style="{StaticResource labelstyle}"  Width="Auto"   HorizontalAlignment="Left" >
+                                Product Details
+                            </Label>
+                        </StackPanel>
+                        <StackPanel>
+                            <DataGrid   ItemsSource="{Binding lstParticulars}" Background="White" GridLinesVisibility="Vertical" 
+                            
+                            RowHeaderWidth="0"
+                            CanUserAddRows="False"   Cursor="Hand" 
+                            AutoGenerateColumns="False" 
+                            VerticalScrollBarVisibility="Visible" Height="Auto" VerticalContentAlignment="Center" 
+                            
+                          >
+
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        <Setter Property="FontFamily" Value="Calibri" />
+                                        <Setter Property="FontSize" Value="14"></Setter>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.ColumnHeaderStyle>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        <Setter Property="FontFamily" Value="Calibri" />
+                                        <Setter Property="FontSize" Value="14"></Setter>
+                                    </Style>
+                                </DataGrid.ColumnHeaderStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn  Width="10">
+
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock><Hyperlink>
+                                                <InlineUIContainer>
+                    							    <Button Click="Button_Click_2">X</Button>
+                    						    </InlineUIContainer></Hyperlink>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" Width="400" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="60" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="Rate" Binding="{Binding Rate}" Width="60" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="Per" Binding="{Binding PerName}" Width="60" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="90" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="Other Charges" Binding="{Binding OtherCharges}" Width="90" IsReadOnly="True"   Visibility="Collapsed" />
+                                    <DataGridTextColumn Header="Taxable Amount" Binding="{Binding TaxableAmount,StringFormat={}{0:#.##}}" Width="90" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="CGST" Binding="{Binding CGST}" Width="30" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="SGST" Binding="{Binding SGST}" Width="30" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="IGST" Binding="{Binding IGST}" Width="30" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="Tax" Binding="{Binding TotalTax}" Width="90" IsReadOnly="True"    />
+                                    <DataGridTextColumn Header="TotalAmount" Binding="{Binding TotalAmount,StringFormat={}{0:#.##}}" Width="90" IsReadOnly="True"    />
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+                        </StackPanel>
+                        <StackPanel>
+                            <Button Style="{StaticResource loginbuttonstyle}" Command="{Binding cmdOpenPopWindow}" CommandParameter="Bill"  Grid.Row="1" 
+                                    HorizontalAlignment="Left" Width="Auto" >
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  >
+                                    <AccessText>_Add</AccessText>
+                                    <Image Source="/IMS;component/Images/AddRed.png" Stretch="UniformToFill" Margin="2"></Image>
+                                    
+                                </StackPanel>
+                                
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <StackPanel Height="10"></StackPanel>
+                <Border Style="{StaticResource docborderstyle}">
+
+
+
+
+                    <StackPanel>
+                        <StackPanel   Orientation="Horizontal"   >
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource labelstyle}" Visibility="Collapsed" >Discount</Label>
+                                    <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource labelstyle}"  >Customer Details</Label>
+
+                                    <TextBox Grid.Row="0" Grid.Column="1" Name="txtDiscount" Text="{Binding Discount,TargetNullValue={x:Static sys:String.Empty}}" PreviewTextInput="TextBox_PreviewTextInput_1" Visibility="Collapsed"
+                                        HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" MaxLength="10" Width="100" ></TextBox>
+
+                                    <TextBox Name="txtComment" Text="{Binding CustomerName}" Grid.Row="1" Grid.Column="1"  
+                             TextWrapping="Wrap" AcceptsReturn="True" Height="60"  MaxLength="200"
+                             VerticalContentAlignment="Top" HorizontalContentAlignment="Left"
+                             HorizontalAlignment="Left" Style="{StaticResource textboxstyle}" ></TextBox>
+
+
+                                </Grid>
+
+                            </StackPanel>
+                            <StackPanel>
+
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+
+
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Style="{StaticResource labelstyle}" Grid.Row="0" Grid.Column="0" Visibility="Collapsed" >Total Invoice Amount</Label>
+                                    <Label Style="{StaticResource labelstyle}" Grid.Row="1" Grid.Column="0" Visibility="Collapsed">Discount</Label>
+                                    <Label Style="{StaticResource labelstyle}" Grid.Row="2" Grid.Column="0">Total Taxable Amount</Label>
+                                    <Label Style="{StaticResource labelstyle}" Grid.Row="3" Grid.Column="0">Total Tax</Label>
+                                    <Label Style="{StaticResource labelstyle}" Grid.Row="4" Grid.Column="0">Total Bill Amount</Label>
+                                    <!--<Label Grid.Row="5" Grid.Column="0">Total Re Amount</Label>
+                                    <Label Grid.Row="6" Grid.Column="0">Total Outstanding Amount</Label>-->
+
+                                    <TextBox Visibility="Collapsed" Style="{StaticResource amountreadonly}" Grid.Row="0" Grid.Column="1" Text="{Binding TotalInvoiceAmount,StringFormat={}{0:#.##}}"></TextBox>
+                                    <TextBox Style="{StaticResource amountreadonly}" Grid.Row="1" Grid.Column="1" Visibility="Collapsed" Text="{Binding Discount,StringFormat={}{0:#.##}}"></TextBox>
+                                    <TextBox Style="{StaticResource amountreadonly}" Grid.Row="2" Grid.Column="1" Text="{Binding TotalInvoiceTaxableAmount,StringFormat={}{0:#.##}}"></TextBox>
+                                    <TextBox Style="{StaticResource amountreadonly}" Grid.Row="3" Grid.Column="1" Text="{Binding TotalInvoiceTax,StringFormat={}{0:#.##}}"></TextBox>
+
+                                    <TextBox Style="{StaticResource amountreadonly}" Grid.Row="4" Grid.Column="1" Text="{Binding TotalofTotalAmount,StringFormat={}{0:#.##}}"></TextBox>
+                                    <!--<TextBox Style="{StaticResource amountreadonly}" Grid.Row="5" Grid.Column="1" Text="{Binding TotalofTotalPaidAmount,StringFormat={}{0:#.##}}"></TextBox>
+                                    <TextBox Style="{StaticResource amountreadonly}" Grid.Row="6" Grid.Column="1" Text="{Binding TotalOutStandingAmount,StringFormat={}{0:#.##}}" Foreground="Red" ></TextBox>-->
+
+
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource simpleborder}" >
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button Style="{StaticResource formbuttonstyle}" Command="{Binding cmdsave}" HorizontalAlignment="Center" >
+                        <StackPanel Orientation="Horizontal"  >
+                                <AccessText>_Print</AccessText>
+                                <Image Source="/IMS;component/Images/PrinterIcon.png" Stretch="UniformToFill" Width="20" Margin="5,0,0,0" ></Image>
+                        </StackPanel>
+
+                    </Button>
+                        <Button Style="{StaticResource formbuttonstyle}"  Click="cmdSearchPopUp" HorizontalAlignment="Center" >
+                            <StackPanel Orientation="Horizontal"  >
+                                <AccessText>_Search</AccessText>
+                                <Image Source="/IMS;component/Images/SearchICO.ico" Stretch="UniformToFill" Width="20" ></Image>
+                            </StackPanel>
+
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            
+            <StackPanel Visibility="Hidden">
+                <Border BorderBrush="Transparent" BorderThickness="1" Margin="5" >
+                    <StackPanel   >
+                        <StackPanel HorizontalAlignment="Stretch" Width="Auto"  Margin="1" Background="#FF48958C">
+                            <Label  Width="Auto"   HorizontalAlignment="Left"  FontSize="15" Foreground="#FFF7F3F3"  >
+                                Search
+                            </Label>
+                        </StackPanel>
+                        <Border BorderBrush="#FF48958C" BorderThickness="1" Margin="1" >
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Visibility="Visible">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="25*"></ColumnDefinition>
+                                            <ColumnDefinition Width="25*"></ColumnDefinition>
+                                            <ColumnDefinition Width="25*"></ColumnDefinition>
+                                            <ColumnDefinition Width="25*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource labelstyle}">Bill Number</Label>
+                                        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource labelstyle}">From Date</Label>
+                                        <Label Grid.Row="3" Grid.Column="2" Style="{StaticResource labelstyle}">To Date</Label>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" Style="{StaticResource textboxstyle}" Width="283"  SpellCheck.IsEnabled="True"></TextBox>
+                                        <DatePicker SelectedDate="{Binding dtFromDate}" Grid.Row="3" Grid.Column="1" Width="100" HorizontalAlignment="Left" Height="25"/>
+                                        <DatePicker SelectedDate="{Binding dtToDate}" Grid.Row="3" Grid.Column="3" Width="100" HorizontalAlignment="Left" Height="25"/>
+                                    </Grid>
+
+
+                                </StackPanel>
+
+
+                                <StackPanel Orientation="Horizontal" Width="Auto"  HorizontalAlignment="Center">
+                                    <Button Style="{StaticResource loginbuttonstyle}" Command="{Binding cmdSearch}" HorizontalAlignment="Left" Width="67" >
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  >
+                                            <TextBlock Text="Search"></TextBlock>
+                                            <Image Source="/IMS;component/Images/Search.png" Stretch="UniformToFill" Width="20" ></Image>
+                                        </StackPanel>
+                                    </Button>
+
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                        <DataGrid   ItemsSource="{Binding lstInvoiceDetails}" Background="White" GridLinesVisibility="None" 
+                            
+                            RowHeaderWidth="0"
+                            CanUserAddRows="False" SelectionChanged="DataGrid_SelectionChanged_1" Cursor="Hand" 
+                            AutoGenerateColumns="False" 
+                            Margin="1" VerticalScrollBarVisibility="Visible" Height="Auto" VerticalContentAlignment="Center" 
+                            
+                          >
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="Background" Value="#FF48958C"/>
+                                    <Setter Property="Foreground" Value="White" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="FontFamily" Value="Tangerine" />
+                                    <Setter Property="FontSize" Value="12" />
+                                    <Setter Property="FontWeight" Value="Medium"/>
+
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.CellStyle>
+                                <Style TargetType="{x:Type DataGridCell}">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGrid.CellStyle>
+
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="ID" Width="30">
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock><Hyperlink>
+                                                <InlineUIContainer>
+                    							    <TextBlock Text="{Binding InvoiceID}" />
+                    						    </InlineUIContainer></Hyperlink>
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTextColumn Header="Invoice No" Binding="{Binding InvoiceNo}" Width="60" IsReadOnly="True"    />
+                                <DataGridTextColumn Header="Invoice Date" Binding="{Binding InvoiceDate}" Width="80" IsReadOnly="True"    />
+                                <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierName}" Width="150" IsReadOnly="True"    />
+                                <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" Width="200" IsReadOnly="True"    />
+                                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="50" IsReadOnly="True"    />
+                                <DataGridTextColumn Header="Rate" Binding="{Binding Rate}" Width="50" IsReadOnly="True"    />
+                                <DataGridTextColumn Header="Per" Binding="{Binding PerName}" Width="40" IsReadOnly="True"    />
+                                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="60" IsReadOnly="True"    />
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
+                    </StackPanel>
+                </Border>
+            </StackPanel  >
+
+        </StackPanel>
+    </Grid>
+</UserControl>

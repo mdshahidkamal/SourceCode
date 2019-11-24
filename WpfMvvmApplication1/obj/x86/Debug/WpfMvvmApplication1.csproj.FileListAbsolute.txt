@@ -1,0 +1,42 @@
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\bin\Debug\WpfMvvmApplication1.exe.config
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\Resources\IconsResourceDictionary.baml
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\Resources\ImplicitStylesResourceDictionary.baml
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\Resources\StylesResourceDictionary.baml
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\App.baml
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\App.g.cs
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1_MarkupCompile.cache
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\bin\Debug\WpfMvvmApplication1.exe
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\bin\Debug\WpfMvvmApplication1.pdb
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\Views\MainWindow.g.cs
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1_MarkupCompile.lref
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\Views\MainWindow.baml
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.g.resources
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.Properties.Resources.resources
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.csproj.GenerateResource.Cache
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.exe
+C:\Users\user\Documents\Visual Studio 2012\Projects\WpfMvvmApplication1\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.pdb
+D:\HospitalManagementSystem\WpfMvvmApplication1\bin\Debug\WpfMvvmApplication1.exe.config
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.exe
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.pdb
+D:\HospitalManagementSystem\WpfMvvmApplication1\bin\Debug\WpfMvvmApplication1.exe
+D:\HospitalManagementSystem\WpfMvvmApplication1\bin\Debug\WpfMvvmApplication1.pdb
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.csprojResolveAssemblyReference.cache
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\Resources\IconsResourceDictionary.baml
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\Resources\ImplicitStylesResourceDictionary.baml
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\Resources\StylesResourceDictionary.baml
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\Views\BillEntry.baml
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\App.baml
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\Views\BillEntry.g.cs
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\Views\MainWindow.g.cs
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\App.g.cs
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1_MarkupCompile.cache
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1_MarkupCompile.lref
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\Views\MainWindow.baml
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.g.resources
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.Properties.Resources.resources
+D:\HospitalManagementSystem\WpfMvvmApplication1\obj\x86\Debug\WpfMvvmApplication1.csproj.GenerateResource.Cache
+D:\HospitalManagementSystem\WpfMvvmApplication1\bin\Debug\log4net.dll
+D:\HospitalManagementSystem\WpfMvvmApplication1\bin\Debug\log4net.xml
